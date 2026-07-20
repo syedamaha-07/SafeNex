@@ -25,7 +25,7 @@ export default function Navbar() {
                 </div>
 
                 <div className={styles.navActions}>
-                    <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer" className="btn-secondary">Admin Login</a>
+                    <a href="https://safenex-admin.onrender.com" target="_blank" rel="noopener noreferrer" className="btn-secondary">Admin Login</a>
                     <button className="btn-primary">Download App</button>
                 </div>
             </div>
