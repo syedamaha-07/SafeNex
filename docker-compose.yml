@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: ./safenex-backend
+    ports:
+      - "8000:8000"
+    env_file: ./safenex-backend/.env
+  admin:
+    build:
+      context: ./safenex-admin
+      args:
+        - NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
+        - NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
+        - NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
+      - NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH
+
+  web:
+    build: ./safenex-web
+    ports:
+      - "3001:3000"
+  # Supabase local services are typically managed via `supabase start`
+  # but can be orchestrated here if needed.
