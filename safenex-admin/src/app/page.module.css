@@ -374,3 +374,68 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #cbd5e1;
 }
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 20px 0;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .header h2 {
+    font-size: 1.6rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboardSplit {
+    grid-template-columns: 1fr;
+  }
+
+  .insightsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebarNav a {
+    font-size: 16px;
+    padding: 14px 20px;
+  }
+
+  .mapContainer {
+    height: 350px;
+  }
+
+  .feedContainer {
+    margin-top: 20px;
+  }
+
+  .glassCard {
+    padding: 18px;
+  }
+
+  .dataTable {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+}
