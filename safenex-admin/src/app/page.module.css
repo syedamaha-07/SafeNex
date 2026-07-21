@@ -375,32 +375,55 @@
   background: #cbd5e1;
 }
 /* ================= MOBILE RESPONSIVE ================= */
+/* ================= MOBILE RESPONSIVE ================= */
+
+.menuButton {
+  display: none;
+}
 
 @media (max-width: 768px) {
 
-  .container {
-    flex-direction: column;
+  .menuButton {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 22px;
+    cursor: pointer;
   }
- .sidebar {
-  width: 100%;
-  border-right: none;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 10px;
-}
 
-.sidebarNav {
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  gap: 10px;
-}
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
 
-.sidebarNav a {
-  white-space: nowrap;
-}
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 260px;
+    height: 100vh;
+    background: #fff;
+    transition: left .3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    border-right: 1px solid #e2e8f0;
+  }
+
+  .showSidebar {
+    left: 0;
+  }
 
   .main {
-    padding: 20px;
+    width: 100%;
+    margin-left: 0;
+    padding: 70px 20px 20px;
   }
 
   .header {
@@ -409,37 +432,14 @@
     gap: 15px;
   }
 
-  .header h2 {
-    font-size: 1.6rem;
-  }
-
-  .statsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .dashboardSplit {
-    grid-template-columns: 1fr;
-  }
-
+  .statsGrid,
+  .dashboardSplit,
   .insightsGrid {
     grid-template-columns: 1fr;
   }
 
-  .sidebarNav a {
-    font-size: 16px;
-    padding: 14px 20px;
-  }
-
   .mapContainer {
     height: 350px;
-  }
-
-  .feedContainer {
-    margin-top: 20px;
-  }
-
-  .glassCard {
-    padding: 18px;
   }
 
   .dataTable {
@@ -447,48 +447,4 @@
     overflow-x: auto;
     white-space: nowrap;
   }
-
-}
-.menuButton{
-  display:none;
-}
-
-@media (max-width:768px){
-
-.menuButton{
-display:block;
-position:fixed;
-top:15px;
-left:15px;
-z-index:9999;
-background:#2563eb;
-color:#fff;
-border:none;
-padding:10px 14px;
-font-size:22px;
-border-radius:8px;
-}
-
-.sidebar{
-position:fixed;
-top:0;
-left:-280px;
-width:260px;
-height:100vh;
-background:#fff;
-transition:.3s;
-z-index:999;
-overflow-y:auto;
-}
-
-.showSidebar{
-left:0;
-}
-
-.main{
-width:100%;
-margin-left:0;
-padding-top:70px;
-}
-
 }
