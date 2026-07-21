@@ -449,3 +449,46 @@
   }
 
 }
+.menuButton{
+  display:none;
+}
+
+@media (max-width:768px){
+
+.menuButton{
+display:block;
+position:fixed;
+top:15px;
+left:15px;
+z-index:9999;
+background:#2563eb;
+color:#fff;
+border:none;
+padding:10px 14px;
+font-size:22px;
+border-radius:8px;
+}
+
+.sidebar{
+position:fixed;
+top:0;
+left:-280px;
+width:260px;
+height:100vh;
+background:#fff;
+transition:.3s;
+z-index:999;
+overflow-y:auto;
+}
+
+.showSidebar{
+left:0;
+}
+
+.main{
+width:100%;
+margin-left:0;
+padding-top:70px;
+}
+
+}

@@ -12,7 +12,13 @@ export default function AdminLayout({ children, selected = '/dashboard' }: { chi
 
     return (
         <div className={styles.container}>
-            <aside className={styles.sidebar}>
+            <button
+            className={styles.menuButton}
+            onClick={() => setMenuOpen(!menuOpen)}
+            >
+            ☰
+            </button>
+            <aside className={`${styles.sidebar} ${menuOpen ? styles.showSidebar : ""}`}>
                 <div className={styles.logoContainer} style={{ padding: '32px 24px', textAlign: 'center' }}>
                     <img src="/logo.png" alt="SafeNex Logo" style={{ height: '80px', objectFit: 'contain' }} />
                 </div>
