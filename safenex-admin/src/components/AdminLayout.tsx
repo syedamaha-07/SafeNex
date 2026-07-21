@@ -5,7 +5,6 @@ import styles from '../app/page.module.css';
 
 export default function AdminLayout({ children, selected = '/dashboard' }: { children: React.ReactNode, selected?: string }) {
     const pathname = usePathname();
-
     const isActive = (path: string) => {
         if (path === '/dashboard' && pathname === '/') return true;
         return pathname?.startsWith(path);
