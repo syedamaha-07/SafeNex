@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     SUPABASE_KEY: str
     DATABASE_URL: str  # PostgreSQL connection string
     SUPABASE_SERVICE_ROLE_KEY: str
+    HARDWARE_API_KEY: str
     
     # SECURITY
     SECRET_KEY: str

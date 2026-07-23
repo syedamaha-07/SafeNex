@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks
+from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks, Header
+from app.core.config import settings
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.database import get_db, SessionLocal
 from app.api.deps import get_current_child_user
@@ -19,13 +20,18 @@ async def run_ai_analysis(user_id):
 async def update_location(
     location_in: LocationCreate,
     background_tasks: BackgroundTasks,
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
+    x_api_key: str = Header(...)
 ):
     """
     Ingest a new GPS location from a child device.
     """
     # Authentication temporarily bypassed for testing
-    
+    if x_api_key != settings.HARDWARE_API_KEY:
+     raise HTTPException(
+        status_code=401,
+        detail="Invalid API Key"
+    )
     # 1. Store the new location
     new_location = Location(
         user_id=location_in.user_id,
