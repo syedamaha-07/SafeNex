@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.api.v1 import locations, sos
+from app.api.v1 import locations, sos, auth
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -23,6 +23,7 @@ def root():
     return {"message": "Welcome to SafeNex API", "version": "1.0.0"}
 
 app.include_router(locations.router, prefix="/api/v1/locations", tags=["locations"])
+app.include_router(auth.router, prefix="/api/v1/auth", tags=["auth"])
 app.include_router(sos.router, prefix="/api/v1/sos", tags=["sos"])
 
 @app.get("/health")
